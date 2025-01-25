@@ -14,8 +14,11 @@ namespace Prototype_1.Scripts
         private float _targetDirection;
         private float _currentVelocity;
         public float smoothTime;
+        public int PlayerID;
+        public GameObject MenuUI;
+        public GameObject EndGameUI;
 
-
+        
 
         private void Update()
         {
@@ -25,6 +28,10 @@ namespace Prototype_1.Scripts
 
         private void GetInput()
         {
+            if (MenuUI.activeInHierarchy || EndGameUI.activeInHierarchy)
+            {
+                return;
+            }
             if (Input.GetKey(leftKey))
             {
                 MoveToTheLeft();

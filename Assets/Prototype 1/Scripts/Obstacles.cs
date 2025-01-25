@@ -4,7 +4,7 @@ namespace Prototype_1.Scripts
 {
     public class Obstacles : MonoBehaviour
     {
-        private float _speed;
+        public float speed;
         private const float ZLimitRange = -20;
 
         private void FixedUpdate()
@@ -16,12 +16,12 @@ namespace Prototype_1.Scripts
 
         private void MoveTowardsTheCamera()
         {
-            transform.Translate(Vector3.back * (_speed * Time.deltaTime), Space.World);
+            transform.Translate(Vector3.back * (speed * Time.deltaTime), Space.World);
         }
 
-        private void SyncTheSpeed()
+        public virtual void SyncTheSpeed()
         {
-            _speed = GameManager.instance.speed;
+            speed = GameManager.instance.speed;
         }
 
         private void CheckTheRangeLimit()

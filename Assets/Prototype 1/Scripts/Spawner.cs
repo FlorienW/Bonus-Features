@@ -10,7 +10,7 @@ namespace Prototype_1.Scripts
         private float _spawnerStartingCooldownTime = 1.5f * 40;
 
 
-        private void Start()
+        public void StartAtBeginning()
         {
             Instantiate(PickRandomPrefab(), PickRandomPositionForPlayer1(), Quaternion.identity);
             Instantiate(PickRandomPrefab(), PickRandomPositionForPlayer2(), Quaternion.identity);
