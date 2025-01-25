@@ -9,17 +9,13 @@ namespace Prototype_1.Scripts
         public float leftBoundaryRange;
         public float rightBoundaryRange;
         public float speed;
-        public float leftDirection ;
-        public float rightDirection ;
-        public float targetDirection;
+        private const float LeftDirection = -25f;
+        private const float RightDirection = 25f;
+        private float _targetDirection;
         private float _currentVelocity;
         public float smoothTime;
 
-        private void Start()
-        {
-            leftDirection = -25f;
-            rightDirection = 25f;
-        }
+
 
         private void Update()
         {
@@ -69,22 +65,22 @@ namespace Prototype_1.Scripts
 
         private void RotateToTheStraight()
         {
-            targetDirection = 0;
+            _targetDirection = 0;
         }
 
         private void RotateToTheLeft()
         {
-            targetDirection = leftDirection;
+            _targetDirection = LeftDirection;
         }
 
         private void RotateToTheRight()
         {
-            targetDirection = rightDirection;
+            _targetDirection = RightDirection;
         }
 
         private void SyncTheRotation()
         {
-            float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetDirection, ref _currentVelocity, smoothTime);
+            float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, _targetDirection, ref _currentVelocity, smoothTime);
             transform.rotation = Quaternion.Euler(0, angle, 0);
         }
     }
