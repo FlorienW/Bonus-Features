@@ -1,26 +1,32 @@
 using UnityEngine;
 
-public class MoveLeft : MonoBehaviour
+namespace Prototype_3.Scripts
 {
-    public float moveSpeed = 30;
-    private PlayerController playerControllerScript;
-    public float leftBound = -15;
-
-    void Start()
+    public class MoveLeft : MonoBehaviour
     {
-        playerControllerScript = GameObject.Find("Player").GetComponent<PlayerController>();
-    }
+        public float moveSpeed = 30;
+        private PlayerController _playerControllerScript;
+        public float leftBound = -15;
 
-    void Update()
-    {
-        if (playerControllerScript.gameOver == false)
+        void Start()
         {
-            transform.Translate(Vector3.left * (moveSpeed * Time.deltaTime));
+            _playerControllerScript = GameObject.Find("Player").GetComponent<PlayerController>();
         }
 
-        if (transform.position.x < leftBound && gameObject.CompareTag("Obstacle"))
+        void Update()
         {
-            Destroy(gameObject);
+            if (_playerControllerScript.gameOver == false)
+            {
+                transform.Translate(Vector3.left * (moveSpeed * Time.deltaTime), Space.World);
+            }
+
+            if (transform.position.x < leftBound && gameObject.CompareTag("Obstacle"))
+            {
+                Destroy(gameObject);
+            }
+
+            moveSpeed = _playerControllerScript.speed;
+
         }
     }
 }

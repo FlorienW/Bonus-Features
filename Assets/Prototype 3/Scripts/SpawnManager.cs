@@ -1,19 +1,23 @@
 using UnityEngine;
 
-public class SpawnManager : MonoBehaviour
+namespace Prototype_3.Scripts
 {
-    public GameObject obstacle;
-    public Vector3 spawnPosition = new Vector3(25, 0, 0);
-    public float startDelay = 2f;
-    public float repeatDelay = 2f;
-    void Start()
+    public class SpawnManager : MonoBehaviour
     {
-        InvokeRepeating(nameof(SpawnObstacle), startDelay, repeatDelay);
-    }
+        public GameObject[] obstacles;
+        public Vector3 spawnPosition = new(30, 0, 0);
+        public float startDelay = 0f;
+        public float repeatDelay = 1.8f;
+        void Start()
+        {
+            InvokeRepeating(nameof(SpawnRandomObstacle), startDelay, repeatDelay);
+        }
 
-    void SpawnObstacle()
-    {
-        Instantiate(obstacle, spawnPosition, obstacle.transform.rotation);
-    }
+        void SpawnRandomObstacle()
+        {
+            int index = Random.Range(0, obstacles.Length);
+            Instantiate(obstacles[index], spawnPosition, obstacles[index].transform.rotation);
+        }
 
+    }
 }
