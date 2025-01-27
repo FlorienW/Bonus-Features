@@ -1516,9 +1516,9 @@ AudioSource:
   m_audioClip: {fileID: 8300000, guid: d70999ba737574c808b1d37cbdca0c37, type: 3}
   m_Resource: {fileID: 8300000, guid: d70999ba737574c808b1d37cbdca0c37, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.047
+  m_Volume: 0.014
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -2020,6 +2020,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 4bcde6de2166e41e284ec46d8a01fb90, type: 3}
   - {fileID: 8300000, guid: 913d6445ee8cc4152a9c18da590ee203, type: 3}
   - {fileID: 8300000, guid: e7ee25a47d63b46cdaf65480d62b405c, type: 3}
+  gameoverUI: {fileID: 526217465}
   deathParticles: {fileID: 2630815748524575241, guid: cb7cd9b0c56a24d49a40784bd3203ae6, type: 3}
 --- !u!95 &2113026476 stripped
 Animator:
